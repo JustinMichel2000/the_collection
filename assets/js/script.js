@@ -1,6 +1,6 @@
 let collection = [
   {
-    picture: "" ,
+    picture: "../../assets/storage/image10.jpg" ,
     firstandsurname: "Gon Freecss",
     typeNen: "Enhancement",
     affiliation: "Hunter Association",
@@ -10,7 +10,7 @@ let collection = [
   },
 
   {
-    picture:"" ,
+    picture:"../../assets/storage/image9.jpg" ,
     firstandsurname: "Killua Zoldyck",
     typeNen: "Transmutation",
     affiliation: ["Hunter Association", "Zoldyck's family"],
@@ -20,7 +20,7 @@ let collection = [
   },
 
   {
-    picture:"" ,
+    picture:"../../assets/storage/image8.jpg" ,
     firstandsurname: "Kurapika",
     typeNen: ["Conjuration", "Specialization"],
     affiliation: ["Hunter Association", "Nostrade Family", "Zodiacs"],
@@ -30,7 +30,7 @@ let collection = [
   },
 
   {
-    picture:"" ,
+    picture:"../../assets/storage/image7.jpg" ,
     firstandsurname: "Chrollo Lucilfer",
     typeNen: "Specialization",
     affiliation: "Phantom Troupe",
@@ -40,7 +40,7 @@ let collection = [
   },
 
   {
-    picture:"" ,
+    picture:"../../assets/storage/image6.jpg" ,
     firstandsurname: "Hisoka Morow",
     typeNen: "Transmutation",
     affiliation: "Hunter Association",
@@ -50,7 +50,7 @@ let collection = [
   },
 
   {
-    picture:"" ,
+    picture:"../../assets/storage/image5.jpg" ,
     firstandsurname: "Ging Freecss",
     typeNen: "Unknown",
     affiliation: ["Hunter Association", "Continent Expedition Team"],
@@ -60,7 +60,7 @@ let collection = [
   },
 
   {
-    picture:"" ,
+    picture:"../../assets/storage/image4.jpg" ,
     firstandsurname: "Kite",
     typeNen: "Conjuration",
     affiliation: "Amateur Hunters",
@@ -70,7 +70,7 @@ let collection = [
   },
 
   {
-    picture:"" ,
+    picture:"../../assets/storage/image3.jpg" ,
     firstandsurname: "Meruem",
     typeNen: "Emission",
     affiliation: "Chimera Ants",
@@ -80,7 +80,7 @@ let collection = [
   },
 
   {
-    picture:"" ,
+    picture:"../../assets/storage/image2.jpg" ,
     firstandsurname: "Neferpitou",
     typeNen: "Specialization",
     affiliation: "Royal Guards",
@@ -90,7 +90,7 @@ let collection = [
   },
 
   {
-    picture:"" ,
+    picture:"../../assets/storage/image11.jpg" ,
     firstandsurname: "Isaac Netero",
     typeNen: "Enhancement",
     affiliation: "Hunter Association",
@@ -111,36 +111,12 @@ let card = document.createElement("article");
 card.classList.add("card");
 cards.appendChild(card);
 
-let picture = document.createElement("img");
-picture.classList.add("picture");
-card.appendChild(picture);
-
-let firstandsurname = document.createElement("h3");
-firstandsurname.classList.add("firstandsurname");
-card.appendChild(firstandsurname);
-
-let typeNen = document.createElement("h3");
-typeNen.classList.add("typenen");
-card.appendChild(typeNen);
-
-let affiliation = document.createElement("h3");
-affiliation.classList.add("affiliation");
-card.appendChild(affiliation);
-
-let specialTech = document.createElement("ul");
-specialTech.classList.add("specialtech");
-card.appendChild(specialTech);
-
-let description = document.createElement("p");
-description.classList.add("description");
-card.appendChild(description);
-
-let quote = document.createElement("p");
-quote.classList.add("quote");
-card.appendChild(quote);
-
-
 for ( let element of collection) {
+
+  let picture = document.createElement("img");
+ picture.classList.add("picture");
+ picture.setAttribute("src", element.picture);
+ card.appendChild(picture);
 
   let firstandsurname = document.createElement("h3");
   firstandsurname.classList.add("firstandsurname");
