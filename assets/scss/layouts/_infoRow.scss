@@ -1,0 +1,33 @@
+
+
+.info-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 10px; 
+    align-items: center; 
+    font-size: small;
+    color: white;
+    
+    .firstandsurname{
+
+        background-color: lightskyblue;
+
+    }
+
+    .typenen{
+
+        background-color: lightgreen;
+    }
+
+    .affiliation{
+
+        background-color: lightseagreen;
+    }
+
+  
+  }
+
+  
+
+  
+  

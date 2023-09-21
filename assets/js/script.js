@@ -13,7 +13,7 @@ let collection = [
     picture:"../../assets/storage/image9.jpg" ,
     firstandsurname: "Killua Zoldyck",
     typeNen: "Transmutation",
-    affiliation: ["Hunter Association", "Zoldyck's family"],
+    affiliation: ["Hunter Association", " Zoldyck's family"],
     specialTech: ["Lightning Palm", "Godspeed", "Thunderbolt"],
     description: "Killua Zoldyck is the third child of Silva and Kikyo Zoldyck and the heir of the Zoldyck Family, until he runs away from home and becomes a Rookie Hunter. He is the best friend of Gon Freecss and is currently traveling with Alluka Zoldyck.",
     quote: "I'm so tired of killing... I just want to be a kid. Hanging out, doing stuff with Gon. That's it",
@@ -22,8 +22,8 @@ let collection = [
   {
     picture:"../../assets/storage/image8.jpg" ,
     firstandsurname: "Kurapika",
-    typeNen: ["Conjuration", "Specialization"],
-    affiliation: ["Hunter Association", "Nostrade Family", "Zodiacs"],
+    typeNen: ["Conjuration", " Specialization"],
+    affiliation: ["Hunter Association"," Zodiacs"],
     specialTech: ["Steal Chain", "Chain Jail", "Judgment Chain", "Emperor time"],
     description:"Kurapika is the last survivor of the Kurta Clan. He is a Blacklist Hunter and current leader of the organization founded by Light Nostrade. He is a member of the Zodiacs with the codename Rat. His goal is to avenge his clan and recover the remaining Scarlet Eyes." ,
     quote: "I do not fear death. What I fear is that my rage will one day fade away",
@@ -31,7 +31,7 @@ let collection = [
 
   {
     picture:"../../assets/storage/image7.jpg" ,
-    firstandsurname: "Chrollo Lucilfer",
+    firstandsurname: " Chrollo Lucilfer",
     typeNen: "Specialization",
     affiliation: "Phantom Troupe",
     specialTech: ["Skill Hunter", "Double Face"],
@@ -41,7 +41,7 @@ let collection = [
 
   {
     picture:"../../assets/storage/image6.jpg" ,
-    firstandsurname: "Hisoka Morow",
+    firstandsurname: " Hisoka Morow",
     typeNen: "Transmutation",
     affiliation: "Hunter Association",
     specialTech: ["Bungee Gum", "Texture Surprise"],
@@ -53,7 +53,7 @@ let collection = [
     picture:"../../assets/storage/image5.jpg" ,
     firstandsurname: "Ging Freecss",
     typeNen: "Unknown",
-    affiliation: ["Hunter Association", "Continent Expedition Team"],
+    affiliation: ["Hunter Association", " Continent Expedition Team"],
     specialTech: ["Remote Punch", "Ultrasound", "Phasing Bullets"],
     description: "Ging Freecss is the father of Gon Freecss. He is a Double-Star Ruins Hunter (though he can apply for a Triple-Star License), and a former Zodiac with the codename Boar.",
     quote: "I'm enjoying the journey. So if your destination is the same as mine, enjoy the side trips. A lot. Something more important than the thing you're hunting could be right there by the side of the road",
@@ -64,7 +64,7 @@ let collection = [
     firstandsurname: "Kite",
     typeNen: "Conjuration",
     affiliation: "Amateur Hunters",
-    specialTech: "Crazy Slots",
+    specialTech: ["Crazy Slots"],
     description:"Kite was a Hunter and Ging Freecss' student. After his death, he was reborn as a Chimera Ant. Colt named them Reina, after his late sister, but they took to calling themself Kite once again." ,
     quote: "If you lose even a little of this resolve and start backsliding, I'll kill you. You can live in peace knowing that",
   },
@@ -102,58 +102,59 @@ let collection = [
 
 ];
 
-let cards = document.createElement("div");
-cards.classList.add("cards");
-let container = document.querySelector(".container");
-container.appendChild(cards);
+let cardsContainer = document.querySelector(".cards");
 
-let card = document.createElement("article");
-card.classList.add("card");
-cards.appendChild(card);
+for (let element of collection) {
+  let card = document.createElement("div");
+  card.classList.add("card");
+  cardsContainer.appendChild(card);
 
-for ( let element of collection) {
+  let contentContainer = document.createElement("div"); 
+  contentContainer.classList.add("content-container");
+  card.appendChild(contentContainer);
 
   let picture = document.createElement("img");
- picture.classList.add("picture");
- picture.setAttribute("src", element.picture);
- card.appendChild(picture);
+  picture.classList.add("picture");
+  picture.setAttribute("src", element.picture);
+  contentContainer.appendChild(picture);
+
+  let infoRow = document.createElement("div");
+  infoRow.classList.add("info-row");
+  card.appendChild(infoRow);
 
   let firstandsurname = document.createElement("h3");
   firstandsurname.classList.add("firstandsurname");
-  let textfirstandsurname = document.createTextNode(element.firstandsurname);
-  firstandsurname.appendChild(textfirstandsurname);
-  card.appendChild(firstandsurname);
+  firstandsurname.textContent = element.firstandsurname;
+  infoRow.appendChild(firstandsurname);
 
   let typeNen = document.createElement("h3");
   typeNen.classList.add("typenen");
- let textTypeNen = document.createTextNode(element.typeNen);
- typeNen.appendChild(textTypeNen);
- card.appendChild(typeNen);
+  typeNen.textContent = element.typeNen;
+  infoRow.appendChild(typeNen);
 
- let affiliation = document.createElement("h3");
- affiliation.classList.add("affiliation");
- let textAffiliation = document.createTextNode(element.affiliation);
- affiliation.appendChild(textAffiliation);
- card.appendChild(affiliation);
+  let affiliation = document.createElement("h3");
+  affiliation.classList.add("affiliation");
+  affiliation.textContent = element.affiliation;
+  infoRow.appendChild(affiliation);
 
- let specialTech = document.createElement("ul");
- specialTech.classList.add("specialtech");
- let textSpecialTech = document.createTextNode(element.specialTech);
- specialTech.appendChild(textSpecialTech);
- card.appendChild(specialTech);
+  let specialTech = document.createElement("ul");
+  specialTech.classList.add("specialtech");
+  for (let tech of element.specialTech) {
+    let li = document.createElement("li");
+    li.textContent = tech;
+    specialTech.appendChild(li);
+  }
+  card.appendChild(specialTech);
 
- let description = document.createElement("p");
- description.classList.add("description");
- let textDescription = document.createTextNode(element.description);
- description.appendChild(textDescription);
- card.appendChild(description);
+  let description = document.createElement("p");
+  description.classList.add("description");
+  description.textContent = element.description;
+  card.appendChild(description);
 
- let quote = document.createElement("p");
- quote.classList.add("quote");
- let textQuote = document.createTextNode(element.quote);
- quote.appendChild(textQuote);
- card.appendChild(quote);
- 
+  let quote = document.createElement("p");
+  quote.classList.add("quote");
+  quote.textContent = element.quote;
+  card.appendChild(quote);
 }
 
 
